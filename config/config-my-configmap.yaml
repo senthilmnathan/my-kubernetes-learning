@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+        name: config-my-configmap
+data:
+        key1: Bandana Sinha
+        key2: |
+                Peyton Manning
+                Aaron Rodgers
+                Tom Brady

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+        name: pod-volume-pod
+spec:
+        containers:
+        - name: busybox
+          image: busybox
+          command: ['sh', '-c', 'while true; do sleep 3600; done']
+          volumeMounts:
+          - name: volume-configmap-volume
+            mountPath: /etc/config/configmap
+          - name: volume-secret-volume
+            mountPath: /etc/config/secret
+        volumes:
+        - name: volume-configmap-volume
+          configMap:
+                  name: config-my-configmap
+        - name: volume-secret-volume
+          secret:
+                  secretName: config-my-secret
+
