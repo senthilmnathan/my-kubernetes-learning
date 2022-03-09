@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-k8s-worker1-static
+spec:
+  containers:
+  - name: bandanasinha
+    image: nginx
