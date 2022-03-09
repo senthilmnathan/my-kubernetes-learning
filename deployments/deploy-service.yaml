@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: delpoy-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: service-example
+  template:
+    metadata:
+      labels:
+        app: service-example
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
