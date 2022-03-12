@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-claim
+spec:
+  restartPolicy: Never
+  containers:
+  - name: busybox
+    image: busybox
+    command: ['sh', '-c', 'echo Success! > /output/success.txt']
+    volumeMounts:
+    - name: volume-claim
+      mountPath: /output
+  volumes:
+  - name: volume-claim
+    persistentVolumeClaim:
+      claimName: claim-my
