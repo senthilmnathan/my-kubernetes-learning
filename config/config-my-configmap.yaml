@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
         name: config-my-configmap
 data:
-        key1: Bandana Sinha
+        key1: James T Kirk
         key2: |
                 Peyton Manning
                 Aaron Rodgers

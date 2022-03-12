@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+        name: pod-volume2
+spec:
+        containers:
+        - name: busybox
+          image: busybox
+          command: ['sh', '-c', 'while true; do echo -e "I" >> /output/success.txt; done']
+          volumeMounts:
+          - name: volume-my2
+            mountPath: /output
+        volumes:
+        - name: volume-my2
+          hostPath:
+            path: /var/data

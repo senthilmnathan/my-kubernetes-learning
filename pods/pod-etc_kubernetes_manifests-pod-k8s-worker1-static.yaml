@@ -4,5 +4,5 @@ metadata:
   name: pod-k8s-worker1-static
 spec:
   containers:
-  - name: bandanasinha
+  - name: nginx
     image: nginx

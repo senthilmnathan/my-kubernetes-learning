@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+        name: pod-volume3
+spec:
+        containers:
+        - name: busybox1
+          image: busybox
+          command: ['sh', '-c', 'while true; do echo -e "BS" >> /output/success.txt; done']
+          volumeMounts:
+          - name: volume-shared
+            mountPath: /output
+        - name: busybox2
+          image: busybox
+          command: ['sh', '-c', 'while true; do cat /input/success.txt; done']
+          volumeMounts:
+          - name: volume-shared
+            mountPath: /input
+        volumes:
+        - name: volume-shared
+          emptyDir: {}
