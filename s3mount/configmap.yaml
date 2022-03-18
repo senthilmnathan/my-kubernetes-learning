@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: jenkins
+  name: s3-config
+data:
+  S3_REGION: "us-east-1"
+  S3_BUCKET: "s3-mount-bucket-00001"
+  AWS_KEY: "AKIAUPAQOBCE4VDPGQ7O"
+  AWS_SECRET_KEY: "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"
