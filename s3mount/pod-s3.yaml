@@ -11,7 +11,7 @@ spec:
       privileged: true
     volumeMounts:
     - name: mntdatas3fs
-      mountPath: /var/s3fs:shared
+      mountPath: /var/s3fs
   volumes:
   - name: mntdatas3fs
     hostPath:

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+  namespace: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      securityContext:
+        fsGroup: 1000 
+        runAsUser: 0
+      containers:
+      - name: jenkins
+        image: senthilmnathan/my-jenkins-image:latest
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: mntdatas3fs
+          mountPath: /var/jenkins_home
+      volumes:
+      - name: mntdatas3fs
+        hostPath:
+          path: /mnt/s3data
+      serviceAccountName: jenkins
